@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (context) {
-	var req = require,  // context.requireCordovaModule,
+	var req = context.requireCordovaModule,
 
 		Q = require('q'),
 		path = require('path'),
@@ -9,7 +9,7 @@ module.exports = function (context) {
 		settings = require("./lib/settings")(fs, path),
 
 		android = require("./lib/android")(context),
-		ios = require("./lib/ios")(Q, fs, path, req('plist'), req('xcode'));
+		ios = require("./lib/ios")(Q, fs, path, require('plist'), require('xcode'));
 
 	return settings.get()
 		.then(function (config) {
