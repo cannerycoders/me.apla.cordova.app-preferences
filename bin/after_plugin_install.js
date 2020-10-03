@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (context) {
-	var req = context.requireCordovaModule,
+	var req = require,
 		Q = require('q'),
 		path = require('path'),
 		fs = require("./lib/filesystem")(Q, require('fs'), path),
